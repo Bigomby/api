@@ -5,7 +5,9 @@ export const schedulerProviders = [
     provide: 'AgendaProviderToken',
     useFactory: () =>
       new Promise((resolve, reject) => {
-        const agenda = new Agenda({ db: { address: 'mongodb://localhost/btcven' } });
+        const agenda = new Agenda({
+          db: { address: process.env.MONGODB_URI || 'mongodb://localhost/btcven' },
+        });
 
         agenda.once('ready', () => {
           agenda.start();
