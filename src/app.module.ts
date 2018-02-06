@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
+import { PollerModule } from './modules/poller/poller.module';
+import { InfluxDBModule } from './modules/influxdb/influxdb.module';
+import { SchedulerModule } from './modules/scheduler/scheduler.module';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  components: [],
+  modules: [PollerModule, InfluxDBModule, SchedulerModule],
 })
 export class ApplicationModule {}
