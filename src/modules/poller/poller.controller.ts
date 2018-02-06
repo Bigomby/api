@@ -12,7 +12,12 @@ export class PollerController {
   }
 
   private async update(job, done) {
-    await this.localBitcoinService.update();
-    done();
+    try {
+      await this.localBitcoinService.update();
+    } catch (e) {
+      console.error(e);
+    } finally {
+      done();
+    }
   }
 }
