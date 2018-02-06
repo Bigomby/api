@@ -19,7 +19,7 @@ export class APIService {
       })
       .reduce((_, current) => {
         return current;
-      });
+      }, []);
 
     return price;
   }
